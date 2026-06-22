@@ -1,21 +1,47 @@
----
+﻿---
 import SectionTitle from "@/components/SectionTitle.astro";
-import { posts } from "@/content/blog";
+import { getBlogPosts } from "@/lib/sanity";
+
+const posts = await getBlogPosts();
 ---
 
-<section class="section-pad bg-white">
+<section class="section-pad bg-ivory">
   <div class="container-page">
     <div class="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-      <SectionTitle eyebrow="Blog" title="Contenido local listo para SEO y educación del paciente." />
-      <a class="btn-secondary md:mb-1" href="/blog">Ver blog</a>
+      <SectionTitle
+        eyebrow="Blog"
+        title="Contenido sobre estetica facial y cuidado de la piel."
+      />
+      <a class="btn-secondary shrink-0 md:mb-1" href="/blog">Ver blog</a>
     </div>
+
     <div class="mt-10 grid gap-6 md:grid-cols-3">
       {posts.map((post) => (
-        <article class="card overflow-hidden">
-          <img class="h-52 w-full object-cover" src={post.image} alt={post.title} loading="lazy" />
+        <article class="card group overflow-hidden">
+          <div class="overflow-hidden">
+            <a href={`/blog/${post.slug}`} aria-label={`Leer ${post.title}`}>
+              <img
+                class="h-48 w-full object-cover transition duration-500 group-hover:scale-105"
+                src={post.image}
+                alt={post.imageAlt}
+                loading="lazy"
+              />
+            </a>
+          </div>
           <div class="p-6">
-            <time class="text-xs font-semibold uppercase tracking-[0.14em] text-sage" datetime={post.date}>{post.date}</time>
-            <h3 class="mt-3 font-display text-2xl font-semibold text-ink">{post.title}</h3>
+            <time
+              class="eyebrow text-[0.65rem]"
+              datetime={post.date}
+            >
+              {new Date(post.date).toLocaleDateString("es-PA", {
+                year: "numeric",
+                month: "long",
+                day: "numeric"
+              })}
+            </time>
+            <h3 class="mt-3 font-display text-xl font-semibold leading-snug text-ink">
+              <a class="transition hover:text-sage" href={`/blog/${post.slug}`}>{post.title}</a>
+            </h3>
             <p class="mt-3 text-sm leading-6 text-cocoa">{post.excerpt}</p>
           </div>
         </article>

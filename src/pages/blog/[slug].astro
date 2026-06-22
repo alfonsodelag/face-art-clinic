@@ -1,0 +1,88 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Contact from "@/sections/Contact.astro";
+import type { BlogPost } from "@/content/blog";
+import { getBlogPosts } from "@/lib/sanity";
+
+export async function getStaticPaths() {
+  const posts = await getBlogPosts();
+
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post }
+  }));
+}
+
+type Props = {
+  post: BlogPost;
+};
+
+const { post } = Astro.props;
+const formattedDate = new Date(post.date).toLocaleDateString("es-PA", {
+  year: "numeric",
+  month: "long",
+  day: "numeric"
+});
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: post.title,
+  description: post.excerpt,
+  image: post.image,
+  datePublished: post.date,
+  author: {
+    "@type": "Organization",
+    name: post.author
+  }
+};
+---
+
+<BaseLayout title={`${post.title} | Art Clinic Panama`} description={post.excerpt} image={post.image}>
+  <article class="bg-white">
+    <header class="section-pad pb-10">
+      <div class="container-page max-w-4xl">
+        <a class="text-sm font-semibold text-sage transition hover:text-ink" href="/blog">Volver al blog</a>
+        <p class="eyebrow mt-8">{post.category}</p>
+        <h1 class="mt-4 font-display text-4xl font-semibold leading-tight text-ink sm:text-5xl">
+          {post.title}
+        </h1>
+        <p class="mt-5 text-lg leading-8 text-cocoa">{post.excerpt}</p>
+        <div class="mt-6 flex flex-wrap gap-3 text-sm text-cocoa">
+          <span>{formattedDate}</span>
+          <span aria-hidden="true">/</span>
+          <span>{post.readingTime}</span>
+          <span aria-hidden="true">/</span>
+          <span>{post.author}</span>
+        </div>
+      </div>
+    </header>
+
+    <div class="container-page max-w-5xl">
+      <img class="h-[28rem] w-full rounded-lg object-cover shadow-soft" src={post.image} alt={post.imageAlt} />
+    </div>
+
+    <div class="container-page max-w-3xl py-14">
+      <div class="space-y-10">
+        {post.body.map((section) => (
+          <section>
+            <h2 class="font-display text-3xl font-semibold text-ink">{section.heading}</h2>
+            <div class="mt-4 space-y-5">
+              {section.paragraphs.map((paragraph) => (
+                <p class="text-base leading-8 text-cocoa">{paragraph}</p>
+              ))}
+            </div>
+          </section>
+        ))}
+      </div>
+
+      <div class="mt-12 flex flex-wrap gap-2">
+        {post.tags.map((tag) => (
+          <span class="rounded-full border border-borderSoft px-3 py-1 text-xs font-medium text-cocoa">{tag}</span>
+        ))}
+      </div>
+    </div>
+  </article>
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+  <Contact />
+</BaseLayout>

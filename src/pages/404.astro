@@ -1,0 +1,49 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { whatsappUrl } from "@/config/site";
+---
+
+<BaseLayout
+  title="Página no encontrada | Face Art Clinic Panamá"
+  description="La página que buscas no existe. Vuelve al inicio o contáctanos."
+>
+  <main class="flex min-h-[80vh] items-center bg-shell">
+    <div class="container-page py-24 text-center">
+
+      <!-- Gold decorative line -->
+      <span class="mx-auto block h-px w-16 bg-sage"></span>
+
+      <!-- Large 404 -->
+      <p class="mt-8 font-display text-[8rem] font-bold leading-none tracking-tight text-ink/10 select-none md:text-[12rem]">
+        404
+      </p>
+
+      <!-- Heading -->
+      <h1 class="mt-2 font-display text-3xl font-semibold text-ink md:text-4xl">
+        Página no encontrada
+      </h1>
+
+      <p class="mx-auto mt-5 max-w-md text-base leading-7 text-cocoa">
+        La dirección que buscas no existe o fue movida. Puedes volver al inicio o escribirnos directamente.
+      </p>
+
+      <!-- CTAs -->
+      <div class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+        <a href="/" class="btn-primary px-7 py-3">
+          Volver al inicio
+        </a>
+        <a
+          href={whatsappUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-secondary px-7 py-3"
+        >
+          Contactar por WhatsApp
+        </a>
+      </div>
+
+      <!-- Bottom accent -->
+      <span class="mx-auto mt-14 block h-px w-8 bg-borderSoft"></span>
+    </div>
+  </main>
+</BaseLayout>

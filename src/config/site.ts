@@ -1,44 +1,46 @@
-export const siteConfig = {
-  businessName: "Clínica Dermatológica Demo",
-  tagline: "Dermatología estética y clínica con atención personalizada",
+﻿export const siteConfig = {
+  businessName: "Face Art Clinic",
+  fullName: "Face Art Clinic Panama",
+  tagline: "Medicina estetica facial enfocada en armonia, naturalidad y confianza",
   description:
-    "Clínica especializada en dermatología clínica, estética facial, tratamientos láser, acné, manchas y cuidado integral de la piel.",
-  url: "https://clinica-derma.vercel.app",
-  phone: "+507 0000-0000",
-  whatsapp: "50700000000",
-  email: "contacto@clinicademo.com",
-  address: "Ciudad de Panamá, Panamá",
+    "Clinica estetica facial en Panama enfocada en tratamientos personalizados para realzar la belleza natural, la armonia del rostro y el cuidado de la piel.",
+  url: "https://demo-facial-art-clinic-alfonsodelag.vercel.app",
+  phone: "",
+  whatsapp: "",
+  email: "",
+  address: "Calle Aquilino de la Guardia, Ph. Ocean Business, piso 12 oficina 1209, Panama",
+  city: "Panama",
+  country: "Panama",
   hours: {
-    weekdays: "Lunes a viernes: 8:00 a.m. - 6:00 p.m.",
-    saturday: "Sábados: 9:00 a.m. - 1:00 p.m.",
-    sunday: "Domingos: cerrado"
+    weekdays: "Lunes a Viernes: 9:00 a.m. - 7:00 p.m.",
+    saturday: "Sabados: 9:00 a.m. - 4:30 p.m.",
+    sunday: "Domingos: 10:00 a.m. - 3:00 p.m.",
+    appointmentNote: "Atencion: sujeta a previa cita"
   },
   social: {
-    instagram: "https://instagram.com/",
-    facebook: "https://facebook.com/",
+    instagram: "https://www.instagram.com/faceartclinic.panama/",
+    facebook: "",
     tiktok: "",
     linkedin: ""
   },
   seo: {
-    title: "Clínica Dermatológica Demo | Dermatología en Panamá",
+    title: "Face Art Clinic Panama | Estetica facial y belleza natural",
     description:
-      "Dermatología clínica y estética en Panamá. Tratamientos para acné, manchas, rejuvenecimiento facial, botox, láser y cuidado de la piel.",
+      "Clinica estetica facial en Panama enfocada en tratamientos personalizados para realzar la belleza natural, la armonia del rostro y el cuidado de la piel.",
     keywords: [
-      "dermatólogo en Panamá",
-      "clínica dermatológica en Panamá",
-      "dermatología estética Panamá",
-      "tratamiento para acné Panamá",
-      "botox Panamá",
-      "manchas en la piel Panamá"
+      "clinica estetica facial en Panama",
+      "medicina estetica facial en Panama",
+      "armonizacion facial en Panama",
+      "tratamientos faciales en Panama",
+      "cuidado de piel en Panama",
+      "toxina botulinica Panama",
+      "rellenos faciales Panama",
+      "Face Art Clinic Panama"
     ]
-  },
-  colors: {
-    primary: "#9F7AEA",
-    secondary: "#F8F5F2",
-    accent: "#D6A4A4",
-    dark: "#1F2937",
-    light: "#FFFFFF"
   }
 } as const;
 
-export const whatsappUrl = `https://wa.me/${siteConfig.whatsapp}`;
+// Falls back to Instagram if WhatsApp is not yet configured.
+export const whatsappUrl = siteConfig.whatsapp
+  ? `https://wa.me/${siteConfig.whatsapp}`
+  : siteConfig.social.instagram;

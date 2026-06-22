@@ -1,35 +1,159 @@
 ---
 import { siteConfig, whatsappUrl } from "@/config/site";
+
+const quickLinks = [
+  { href: "/", label: "Inicio" },
+  { href: "/services", label: "Tratamientos" },
+  { href: "/about", label: "ClÃ­nica" },
+  { href: "/blog", label: "Blog" },
+  { href: "/contact", label: "Contacto" }
+];
+
+const featuredServices = [
+  "ArmonizaciÃ³n facial",
+  "Toxina botulÃ­nica",
+  "Rellenos faciales",
+  "Limpieza facial profunda",
+  "Skinboosters",
+  "Bioestimuladores"
+];
 ---
 
-<footer class="bg-ink text-white">
-  <div class="container-page grid gap-10 py-14 md:grid-cols-[1.2fr_0.8fr_0.8fr]">
+<footer class="bg-deepBrown text-white">
+  <div class="container-page grid gap-10 py-14 md:grid-cols-[1.4fr_0.8fr_0.8fr_1fr]">
+    <!-- Brand -->
     <div>
-      <p class="font-display text-2xl font-semibold">{siteConfig.businessName}</p>
-      <p class="mt-4 max-w-md text-sm leading-6 text-white/70">{siteConfig.description}</p>
-      <a class="btn-primary mt-6 bg-white text-ink hover:bg-shell" href={whatsappUrl}>Agendar consulta</a>
+      <div class="flex items-center gap-3">
+        <div class="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-ivory/10 p-1.5 ring-1 ring-white/10">
+          <img
+            src="/logo.png"
+            alt="Face Art Clinic PanamÃ¡"
+            class="h-full w-full object-contain"
+            width="56"
+            height="56"
+          />
+        </div>
+        <div>
+          <p class="font-display text-xl font-semibold text-white">Face Art Clinic</p>
+          <p class="text-sm text-white/50">PanamÃ¡</p>
+        </div>
+      </div>
+      <p class="mt-5 max-w-sm text-sm leading-6 text-white/65">
+        {siteConfig.description}
+      </p>
+      <div class="mt-6 flex items-center gap-3">
+        <a
+          class="btn-primary bg-sage text-white hover:bg-ink"
+          href="/contact"
+        >Agendar evaluaciÃ³n</a>
+      </div>
+      <!-- Instagram link -->
+      <a
+        href={siteConfig.social.instagram}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="mt-5 inline-flex items-center gap-2 text-sm text-white/50 transition hover:text-white/90"
+        aria-label="Instagram de Face Art Clinic"
+      >
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.5"/>
+          <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.5"/>
+          <circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>
+        </svg>
+        @faceartclinic.panama
+      </a>
     </div>
+
+    <!-- Quick links -->
     <div>
-      <h2 class="text-sm font-semibold uppercase tracking-[0.16em] text-white/60">Contacto</h2>
-      <ul class="mt-4 space-y-3 text-sm text-white/80">
-        <li>{siteConfig.phone}</li>
-        <li>{siteConfig.email}</li>
-        <li>{siteConfig.address}</li>
+      <h2 class="text-xs font-semibold uppercase tracking-[0.16em] text-white/45">
+        PÃ¡ginas
+      </h2>
+      <ul class="mt-4 space-y-2.5">
+        {quickLinks.map((link) => (
+          <li>
+            <a
+              class="text-sm text-white/65 transition hover:text-white"
+              href={link.href}
+            >{link.label}</a>
+          </li>
+        ))}
       </ul>
     </div>
+
+    <!-- Services -->
     <div>
-      <h2 class="text-sm font-semibold uppercase tracking-[0.16em] text-white/60">Horario</h2>
-      <ul class="mt-4 space-y-3 text-sm text-white/80">
-        <li>{siteConfig.hours.weekdays}</li>
-        <li>{siteConfig.hours.saturday}</li>
-        <li>{siteConfig.hours.sunday}</li>
+      <h2 class="text-xs font-semibold uppercase tracking-[0.16em] text-white/45">
+        Tratamientos
+      </h2>
+      <ul class="mt-4 space-y-2.5">
+        {featuredServices.map((service) => (
+          <li>
+            <a
+              class="text-sm text-white/65 transition hover:text-white"
+              href="/services"
+            >{service}</a>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <!-- Contact -->
+    <div>
+      <h2 class="text-xs font-semibold uppercase tracking-[0.16em] text-white/45">
+        Contacto
+      </h2>
+      <ul class="mt-4 space-y-3 text-sm text-white/65">
+        {siteConfig.address && (
+          <li class="leading-6">{siteConfig.address}</li>
+        )}
+        {siteConfig.phone && (
+          <li>
+            <a class="transition hover:text-white" href={`tel:${siteConfig.phone}`}>
+              {siteConfig.phone}
+            </a>
+          </li>
+        )}
+        {siteConfig.email && (
+          <li>
+            <a class="transition hover:text-white" href={`mailto:${siteConfig.email}`}>
+              {siteConfig.email}
+            </a>
+          </li>
+        )}
+        {siteConfig.hours.weekdays && (
+          <li class="leading-6 text-white/45 text-xs">{siteConfig.hours.weekdays}</li>
+        )}
+        {siteConfig.hours.saturday && (
+          <li class="text-white/45 text-xs">{siteConfig.hours.saturday}</li>
+        )}
+        {siteConfig.hours.sunday && (
+          <li class="text-white/45 text-xs">{siteConfig.hours.sunday}</li>
+        )}
+        {siteConfig.hours.appointmentNote && (
+          <li class="text-white/45 text-xs">{siteConfig.hours.appointmentNote}</li>
+        )}
+        <li>
+          <a
+            class="inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-2 text-xs text-white/70 transition hover:border-white/40 hover:text-white"
+            href={whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Escribir por WhatsApp
+          </a>
+        </li>
       </ul>
     </div>
   </div>
+
   <div class="border-t border-white/10 py-5">
-    <div class="container-page flex flex-col gap-2 text-xs text-white/55 sm:flex-row sm:items-center sm:justify-between">
-      <p>© {new Date().getFullYear()} {siteConfig.businessName}. Todos los derechos reservados.</p>
-      <p>Template Astro + Tailwind listo para Vercel.</p>
+    <div class="container-page flex flex-col gap-2 text-xs text-white/35 sm:flex-row sm:items-center sm:justify-between">
+      <p>Â© {new Date().getFullYear()} Face Art Clinic PanamÃ¡. Todos los derechos reservados.</p>
+      <p>El rostro como arte.</p>
     </div>
   </div>
 </footer>

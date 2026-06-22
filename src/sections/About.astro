@@ -1,28 +1,58 @@
 ---
 import SectionTitle from "@/components/SectionTitle.astro";
+import Button from "@/components/Button.astro";
 ---
 
-<section class="section-pad bg-cream">
-  <div class="container-page grid items-center gap-12 lg:grid-cols-[0.9fr_1.1fr]">
+<!-- TODO: Replace placeholder images with real Face Art Clinic clinic or treatment photography. -->
+<section class="section-pad bg-ivory">
+  <div class="container-page grid items-center gap-12 lg:grid-cols-[1fr_1fr]">
+    <!-- Images editorial grid -->
     <div class="grid grid-cols-2 gap-4">
-      <img class="h-80 w-full rounded-lg object-cover" src="/images/about-video.jpg" alt="Especialista preparando evaluación dermatológica" loading="lazy" />
-      <img class="mt-10 h-80 w-full rounded-lg object-cover" src="/images/contact-pic.jpg" alt="Paciente recibiendo orientación de cuidado de piel" loading="lazy" />
+      <img
+        class="h-80 w-full rounded-2xl object-cover shadow-card"
+        src="/images/about-video.jpg"
+        alt="Interior de Face Art Clinic Panamá — ambiente cálido y elegante"
+        loading="lazy"
+      />
+      <img
+        class="mt-10 h-80 w-full rounded-2xl object-cover shadow-card"
+        src="/images/contact-pic.jpg"
+        alt="Especialista realizando evaluación estética facial personalizada"
+        loading="lazy"
+      />
     </div>
+
+    <!-- Text content -->
     <div>
       <SectionTitle
-        eyebrow="Clínica reusable"
-        title="Una presencia digital premium, simple de adaptar y lista para transferir."
-        intro="El template centraliza marca, servicios, médicos, preguntas frecuentes y blog en archivos locales para lanzar nuevas clínicas con rapidez sin cargar el proyecto de backend innecesario."
+        eyebrow="Sobre la clínica"
+        title="Un espacio donde cada rostro recibe atención única."
+        intro="Face Art Clinic es un espacio orientado al cuidado estético facial, donde cada tratamiento se plantea desde una mirada personalizada, buscando armonía, naturalidad y bienestar."
       />
+
+      <p class="mt-6 text-sm leading-7 text-cocoa">
+        Nuestro enfoque combina criterio estético, atención personalizada y cuidado profesional para que cada paciente reciba una experiencia clara, segura y cercana.
+      </p>
+
       <div class="mt-8 grid gap-4 sm:grid-cols-2">
-        <div class="card p-5">
-          <h3 class="font-semibold text-ink">Enfoque médico</h3>
-          <p class="mt-2 text-sm leading-6 text-cocoa">Contenido orientado a confianza, diagnóstico, seguimiento y expectativas realistas.</p>
+        <div class="rounded-2xl border border-borderSoft bg-cream p-5">
+          <span class="gold-line mb-3"></span>
+          <h3 class="font-semibold text-ink">Evaluación personalizada</h3>
+          <p class="mt-2 text-sm leading-6 text-cocoa">
+            Cada tratamiento parte de una consulta cuidadosa para entender tus objetivos y características faciales.
+          </p>
         </div>
-        <div class="card p-5">
-          <h3 class="font-semibold text-ink">Edición rápida</h3>
-          <p class="mt-2 text-sm leading-6 text-cocoa">Datos del negocio y colecciones en TypeScript ligero, sin CMS salvo que el cliente lo necesite.</p>
+        <div class="rounded-2xl border border-borderSoft bg-cream p-5">
+          <span class="gold-line mb-3"></span>
+          <h3 class="font-semibold text-ink">Resultados naturales</h3>
+          <p class="mt-2 text-sm leading-6 text-cocoa">
+            Buscamos armonía y equilibrio, no transformaciones. El objetivo es que te veas bien sintiéndote tú misma.
+          </p>
         </div>
+      </div>
+
+      <div class="mt-8">
+        <Button href="/contact" label="Agendar evaluación" />
       </div>
     </div>
   </div>

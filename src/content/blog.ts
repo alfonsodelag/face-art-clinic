@@ -1,26 +1,207 @@
-export const posts = [
+export type BlogPost = {
+  title: string;
+  excerpt: string;
+  date: string;
+  image: string;
+  imageAlt: string;
+  imageCredit: string;
+  slug: string;
+  author: string;
+  readingTime: string;
+  category: string;
+  tags: string[];
+  sanity: {
+    _type: "post";
+    language: "es";
+    market: "Panama";
+    imageAssetUrl: string;
+    imageAlt: string;
+  };
+  body: {
+    heading: string;
+    paragraphs: string[];
+  }[];
+};
+
+export const posts: BlogPost[] = [
   {
-    title: "Cómo preparar tu piel antes de un tratamiento facial",
+    title: "Armonizacion facial en Panama: como lograr resultados naturales y elegantes",
     excerpt:
-      "Una guía breve para llegar a consulta con una rutina simple, segura y útil para tu dermatóloga.",
-    date: "2026-01-12",
-    image: "/images/blog/blog-1.jpg",
-    slug: "preparar-piel-tratamiento-facial"
+      "Una guia clara para entender que significa armonizar el rostro, como se planifica una evaluacion y por que el resultado debe respetar tus facciones.",
+    date: "2026-06-22",
+    image:
+      "https://cdn.sanity.io/images/jdls3x4j/production/2830058c99e0a09023a73c3aa0ef0d0f07fc8901-1600x1067.jpg",
+    imageAlt: "Paciente recibiendo un tratamiento facial profesional en cabina",
+    imageCredit: "",
+    slug: "armonizacion-facial-panama-resultados-naturales",
+    author: "Art Clinic Panama",
+    readingTime: "5 min de lectura",
+    category: "Medicina estetica",
+    tags: ["armonizacion facial", "estetica facial", "Panama", "rejuvenecimiento"],
+    sanity: {
+      _type: "post",
+      language: "es",
+      market: "Panama",
+      imageAssetUrl:
+        "https://cdn.sanity.io/images/jdls3x4j/production/2830058c99e0a09023a73c3aa0ef0d0f07fc8901-1600x1067.jpg",
+      imageAlt: "Paciente recibiendo un tratamiento facial profesional en cabina"
+    },
+    body: [
+      {
+        heading: "Una mirada global antes que un tratamiento aislado",
+        paragraphs: [
+          "La armonizacion facial no se trata de cambiar un rostro ni de perseguir una version exagerada de belleza. En una consulta bien planteada, el punto de partida es observar proporciones, gestos, calidad de piel, volumen, simetria y la forma en que cada rasgo conversa con los demas. Por eso dos pacientes pueden pedir el mismo tratamiento y necesitar planes completamente distintos.",
+          "En Art Clinic Panama, este enfoque es especialmente importante porque muchas personas llegan buscando verse descansadas, frescas o mas definidas, pero sin perder naturalidad. La armonizacion facial permite trabajar pequenos puntos de mejora con una vision integral: suavizar signos de cansancio, recuperar soporte, equilibrar contornos o mejorar textura, siempre con una planificacion individual."
+        ]
+      },
+      {
+        heading: "Que se evalua durante la consulta",
+        paragraphs: [
+          "Una evaluacion responsable mira el rostro en reposo y en movimiento. Las lineas de expresion, la posicion de las cejas, la proyeccion del menton, la definicion mandibular, la hidratacion de labios, la calidad del tercio medio y la firmeza de la piel son parte del analisis. Tambien se conversa sobre antecedentes, tratamientos previos, expectativas, presupuesto, tiempos de recuperacion y eventos cercanos.",
+          "Este paso evita decisiones impulsivas. A veces el paciente cree que necesita volumen en una zona, pero el resultado mas natural se consigue mejorando soporte en otra. Otras veces conviene comenzar por salud de piel antes de pensar en volumen o definicion. La consulta sirve para ordenar prioridades y construir un plan con criterio."
+        ]
+      },
+      {
+        heading: "Tratamientos que pueden formar parte del plan",
+        paragraphs: [
+          "La armonizacion puede incluir toxina botulinica para suavizar gestos marcados, acido hialuronico para restaurar volumen o definir ciertas areas, bioestimuladores para mejorar calidad de piel, peelings, limpieza profunda, hidratacion, tecnologia facial o rutinas dermatologicas personalizadas. No todos se hacen el mismo dia ni todos son necesarios para todas las personas.",
+          "Un buen plan suele avanzar por etapas. Esto permite evaluar respuesta, cuidar la naturalidad y ajustar el camino. La estetica facial elegante no depende de hacer mas, sino de hacer lo correcto en el momento adecuado. Tambien permite que el paciente se adapte a los cambios y decida con calma si necesita un siguiente paso."
+        ]
+      },
+      {
+        heading: "Resultados naturales: que significa realmente",
+        paragraphs: [
+          "Un resultado natural no significa que no se note ningun cambio. Significa que el rostro se ve descansado, proporcionado y coherente con la identidad del paciente. Las personas cercanas pueden percibir una mejoria, pero no deberian sentir que algo se ve ajeno o forzado.",
+          "Para lograrlo, se trabaja con dosis prudentes, tecnica precisa y seguimiento. Tambien se respetan los rasgos propios: no todos los labios deben tener la misma forma, no todos los mentones necesitan la misma proyeccion y no todos los rostros se benefician de una mandibula muy marcada. La belleza clinica esta en personalizar."
+        ]
+      },
+      {
+        heading: "Como prepararte para tu cita",
+        paragraphs: [
+          "Antes de asistir, conviene llevar una lista de tratamientos previos, medicamentos, alergias y fechas importantes. Si tienes fotos de referencia, pueden ayudar, siempre que se usen como punto de conversacion y no como promesa literal. Tambien es util llegar con una idea clara: que te gustaria mejorar, que no quieres cambiar y cuanto tiempo tienes para recuperarte.",
+          "La recomendacion final debe venir de una evaluacion presencial. Este articulo es educativo y no sustituye el criterio profesional. Si buscas armonizacion facial en Panama, agenda una consulta para recibir un plan adaptado a tu rostro, tus objetivos y tu estilo de vida."
+        ]
+      }
+    ]
   },
   {
-    title: "Acné adulto: cuándo consultar y qué evitar",
+    title: "Rutina de skincare en clima tropical: como cuidar tu piel en Panama",
     excerpt:
-      "Señales de alerta, errores comunes y razones para elegir un plan médico personalizado.",
-    date: "2026-01-28",
-    image: "/images/blog/blog-2.jpg",
-    slug: "acne-adulto-cuando-consultar"
+      "El calor, la humedad y la exposicion solar cambian las necesidades de la piel. Aprende como construir una rutina simple, constante y efectiva.",
+    date: "2026-06-18",
+    image:
+      "https://cdn.sanity.io/images/jdls3x4j/production/ab26fef51ad622597f3115fb9083b2d8306da941-1600x2400.jpg",
+    imageAlt: "Productos de cuidado de la piel sobre una superficie clara",
+    imageCredit: "",
+    slug: "rutina-skincare-clima-tropical-panama",
+    author: "Art Clinic Panama",
+    readingTime: "5 min de lectura",
+    category: "Cuidado de piel",
+    tags: ["skincare", "protector solar", "clima tropical", "piel sana"],
+    sanity: {
+      _type: "post",
+      language: "es",
+      market: "Panama",
+      imageAssetUrl:
+        "https://cdn.sanity.io/images/jdls3x4j/production/ab26fef51ad622597f3115fb9083b2d8306da941-1600x2400.jpg",
+      imageAlt: "Productos de cuidado de la piel sobre una superficie clara"
+    },
+    body: [
+      {
+        heading: "La piel tambien responde al ambiente",
+        paragraphs: [
+          "Vivir en Panama significa convivir con sol intenso, humedad alta, calor frecuente, aire acondicionado y cambios de ambiente durante el dia. Todo eso influye en la piel. Algunas personas sienten mas grasa, otras se deshidratan aunque parezca contradictorio, y muchas notan manchas, brotes o sensibilidad si no tienen una rutina consistente.",
+          "Una buena rutina tropical no tiene que ser complicada. De hecho, suele funcionar mejor cuando es simple, sostenible y adaptada a tu tipo de piel. La clave esta en limpiar sin agredir, hidratar sin saturar y proteger del sol todos los dias."
+        ]
+      },
+      {
+        heading: "Manana: proteger y controlar el exceso de brillo",
+        paragraphs: [
+          "La rutina de la manana debe preparar la piel para el dia. Empieza con una limpieza suave, especialmente si despiertas con sensacion grasa. Despues puedes usar un antioxidante, como vitamina C u otros activos recomendados segun tu piel, para apoyar la defensa frente a factores ambientales. Luego aplica una hidratante ligera y termina con protector solar de amplio espectro.",
+          "El protector solar es el paso mas importante en un clima tropical. No solo ayuda a prevenir quemaduras; tambien reduce el riesgo de manchas, envejecimiento prematuro y empeoramiento de marcas post acne. Si pasas tiempo al aire libre, sudas o estas cerca de ventanas, reaplicar es parte del tratamiento, no un extra."
+        ]
+      },
+      {
+        heading: "Noche: reparar sin sobrecargar",
+        paragraphs: [
+          "La noche es el momento ideal para limpiar residuos de protector solar, sudor, maquillaje y contaminacion. Si usas maquillaje o protector resistente al agua, una doble limpieza puede ser util. Despues, la rutina puede incluir activos como retinoides, acidos exfoliantes, niacinamida o ingredientes despigmentantes, pero no todos al mismo tiempo.",
+          "Uno de los errores mas comunes es combinar demasiados productos buscando resultados rapidos. En piel tropical, esto puede traducirse en irritacion, barrera debilitada y mas manchas por inflamacion. Es mejor introducir activos poco a poco, observar la tolerancia y ajustar con guia profesional."
+        ]
+      },
+      {
+        heading: "Hidratacion no es lo mismo que grasa",
+        paragraphs: [
+          "Muchas pieles mixtas o grasas evitan hidratantes por miedo al brillo. Sin embargo, una piel deshidratada puede producir mas sebo o sentirse tirante y sensible. La solucion no es eliminar la hidratacion, sino elegir texturas adecuadas: geles, lociones livianas, formulas oil-free o productos con acido hialuronico, ceramidas y niacinamida.",
+          "Tambien importa la cantidad. En Panama, una capa ligera suele ser suficiente de dia, mientras que de noche puedes reforzar si usas activos que resecan. La rutina debe sentirse comoda; si un producto pesa, arde o deja la piel constantemente brillante, probablemente necesita ajuste."
+        ]
+      },
+      {
+        heading: "Cuando buscar ayuda profesional",
+        paragraphs: [
+          "Si tienes manchas persistentes, acne inflamatorio, rosacea, melasma, sensibilidad frecuente o textura irregular, una rutina generica puede quedarse corta. La evaluacion permite identificar detonantes, elegir activos correctos y combinar cuidado en casa con tratamientos en cabina cuando sea necesario.",
+          "El mejor skincare no es el mas caro ni el mas largo. Es el que puedes cumplir, protege tu piel del clima donde vives y responde a tus objetivos reales. En Art Clinic Panama podemos ayudarte a construir una rutina practica para tu piel, tu agenda y el ambiente tropical."
+        ]
+      }
+    ]
   },
   {
-    title: "Manchas en la piel: constancia antes que soluciones rápidas",
+    title: "Cuidados despues de un tratamiento estetico facial: guia para mejores resultados",
     excerpt:
-      "Por qué el melasma y la hiperpigmentación necesitan diagnóstico, fotoprotección y seguimiento.",
-    date: "2026-02-08",
-    image: "/images/blog/blog-3.jpg",
-    slug: "manchas-piel-constancia"
+      "Los cuidados posteriores influyen en la recuperacion, la comodidad y la duracion del resultado. Esta guia te ayuda a saber que esperar.",
+    date: "2026-06-12",
+    image:
+      "https://cdn.sanity.io/images/jdls3x4j/production/d31cae4228e15de79574dac2c87dc07ebbd45dbb-1600x1067.jpg",
+    imageAlt: "Tratamiento facial relajante en una cabina de estetica",
+    imageCredit: "",
+    slug: "cuidados-despues-tratamiento-estetico-facial",
+    author: "Art Clinic Panama",
+    readingTime: "5 min de lectura",
+    category: "Post-tratamiento",
+    tags: ["cuidados post tratamiento", "piel", "medicina estetica", "recuperacion"],
+    sanity: {
+      _type: "post",
+      language: "es",
+      market: "Panama",
+      imageAssetUrl:
+        "https://cdn.sanity.io/images/jdls3x4j/production/d31cae4228e15de79574dac2c87dc07ebbd45dbb-1600x1067.jpg",
+      imageAlt: "Tratamiento facial relajante en una cabina de estetica"
+    },
+    body: [
+      {
+        heading: "El resultado tambien se cuida en casa",
+        paragraphs: [
+          "Un tratamiento estetico facial no termina cuando sales de la consulta. Las primeras horas y dias son importantes para que la piel se recupere bien, para disminuir molestias y para proteger el resultado. Aunque cada procedimiento tiene indicaciones especificas, existen principios generales que ayudan a la mayoria de los pacientes.",
+          "La regla principal es seguir las instrucciones de tu especialista. Un peeling, una limpieza profunda, un laser, un inyectable o una hidratacion facial no tienen exactamente los mismos cuidados. Este articulo ofrece una guia educativa, pero las indicaciones personalizadas siempre tienen prioridad."
+        ]
+      },
+      {
+        heading: "Primeras 24 horas: suavidad y observacion",
+        paragraphs: [
+          "Despues de muchos tratamientos es normal experimentar enrojecimiento leve, sensibilidad, inflamacion discreta o sensacion de calor. Durante las primeras 24 horas conviene evitar manipular la zona, tocar el rostro innecesariamente, usar maquillaje pesado o aplicar productos activos sin autorizacion. La piel necesita calma.",
+          "Tambien suele recomendarse evitar ejercicio intenso, sauna, vapor, piscinas y exposicion solar directa. El sudor, el calor y la friccion pueden aumentar irritacion o inflamacion. Si el tratamiento fue inyectable, tu especialista puede darte recomendaciones adicionales sobre masaje, posicion al dormir o tiempos de espera antes de retomar ciertas actividades."
+        ]
+      },
+      {
+        heading: "Protector solar: parte del tratamiento",
+        paragraphs: [
+          "En Panama, protegerse del sol es una prioridad despues de cualquier procedimiento facial. La piel tratada puede estar mas sensible y tener mayor riesgo de mancharse si recibe radiacion sin proteccion adecuada. Usa protector solar de amplio espectro, reaplica si estas al aire libre y complementa con sombrero o sombra cuando sea posible.",
+          "No subestimes la exposicion indirecta. Ventanas, trayectos cortos, terrazas y luz intensa acumulada tambien cuentan. Si tu objetivo es mejorar manchas, textura o envejecimiento, la constancia con el protector solar puede marcar una diferencia enorme."
+        ]
+      },
+      {
+        heading: "Rutina simple durante la recuperacion",
+        paragraphs: [
+          "Durante los primeros dias, menos suele ser mas. Una limpieza suave, hidratacion reparadora y protector solar pueden ser suficientes mientras la piel vuelve a su equilibrio. Evita exfoliantes, retinoides, acidos, cepillos faciales o mascarillas fuertes hasta que tu especialista indique que puedes retomarlos.",
+          "Si notas resequedad, tirantez o descamacion leve, no arranques la piel ni aceleres el proceso con exfoliacion. La barrera cutanea necesita reconstruirse. Usar productos calmantes y mantener una hidratacion adecuada suele ser mejor que intervenir demasiado."
+        ]
+      },
+      {
+        heading: "Senales que debes consultar",
+        paragraphs: [
+          "Aunque muchos efectos son temporales, debes comunicarte con la clinica si presentas dolor intenso, inflamacion que empeora, cambios de color inusuales, secrecion, fiebre, alergia, ampollas o cualquier sintoma que te preocupe. Consultar temprano permite actuar con mayor seguridad.",
+          "Los cuidados posteriores son una alianza entre paciente y clinica. Cuando sigues las indicaciones, proteges tu inversion, mejoras tu experiencia y ayudas a que el resultado se vea mas uniforme. En Art Clinic Panama, cada tratamiento debe ir acompanado de una guia clara para que sepas que hacer, que evitar y cuando volver a seguimiento."
+        ]
+      }
+    ]
   }
 ];

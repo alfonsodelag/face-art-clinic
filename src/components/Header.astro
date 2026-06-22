@@ -3,44 +3,88 @@ import { siteConfig, whatsappUrl } from "@/config/site";
 
 const navItems = [
   { href: "/", label: "Inicio" },
-  { href: "/about", label: "Clínica" },
   { href: "/services", label: "Tratamientos" },
+  { href: "/about", label: "Clínica" },
   { href: "/blog", label: "Blog" },
   { href: "/contact", label: "Contacto" }
 ];
 ---
 
-<header class="sticky top-0 z-50 border-b border-ink/10 bg-white/90 backdrop-blur">
-  <div class="hidden bg-ink py-2 text-xs text-white lg:block">
-    <div class="container-page flex items-center justify-between">
-      <p>{siteConfig.phone} · {siteConfig.address}</p>
-      <p>{siteConfig.hours.weekdays}</p>
-    </div>
-  </div>
+<header class="sticky top-0 z-50 border-b border-borderSoft bg-ivory/95 backdrop-blur">
   <div class="container-page flex min-h-20 items-center justify-between gap-4">
-    <a href="/" class="flex items-center gap-3 font-semibold text-ink" aria-label={`${siteConfig.businessName} inicio`}>
-      <span class="grid size-11 place-items-center rounded-md bg-shell font-display text-xl text-cocoa">CD</span>
-      <span class="max-w-40 leading-tight">{siteConfig.businessName}</span>
+    <!-- Logo -->
+    <a
+      href="/"
+      class="flex items-center gap-3"
+      aria-label={`${siteConfig.fullName} — inicio`}
+    >
+      <img
+        src="/logo.png"
+        alt="Face Art Clinic Panamá"
+        class="h-14 w-auto"
+        width="56"
+        height="56"
+      />
+      <span class="font-display text-lg font-semibold leading-tight text-ink">
+        Face Art<br /><span class="text-sm font-normal text-cocoa">Clinic Panamá</span>
+      </span>
     </a>
 
-    <nav class="hidden items-center gap-7 text-sm font-medium text-cocoa lg:flex" aria-label="Navegación principal">
-      {navItems.map((item) => <a class="transition hover:text-ink" href={item.href}>{item.label}</a>)}
+    <!-- Desktop nav -->
+    <nav
+      class="hidden items-center gap-7 text-sm font-medium text-cocoa lg:flex"
+      aria-label="Navegación principal"
+    >
+      {navItems.map((item) => (
+        <a
+          class="transition-colors hover:text-sage"
+          href={item.href}
+        >{item.label}</a>
+      ))}
     </nav>
 
+    <!-- Desktop CTAs -->
     <div class="hidden items-center gap-3 lg:flex">
-      <a class="btn-secondary px-4 py-2.5" href="/contact">Agendar</a>
-      <a class="btn-primary px-4 py-2.5" href={whatsappUrl}>WhatsApp</a>
+      <a class="btn-secondary px-5 py-2.5 text-sm" href="/contact">Agendar evaluación</a>
+      <a
+        class="btn-primary px-5 py-2.5 text-sm"
+        href={whatsappUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+      >WhatsApp</a>
     </div>
 
+    <!-- Mobile menu -->
     <details class="relative lg:hidden">
-      <summary class="flex size-11 cursor-pointer list-none items-center justify-center rounded-md border border-ink/15 bg-white text-ink" aria-label="Abrir menú">
-        <span class="text-2xl leading-none">≡</span>
+      <summary
+        class="flex size-11 cursor-pointer list-none items-center justify-center rounded-full border border-borderSoft bg-ivory text-ink"
+        aria-label="Abrir menú"
+      >
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+          <path d="M3 5h14M3 10h14M3 15h14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
       </summary>
-      <div class="absolute right-0 mt-3 w-72 rounded-lg border border-ink/10 bg-white p-4 shadow-soft">
-        <nav class="grid gap-2 text-sm font-medium text-cocoa" aria-label="Navegación móvil">
-          {navItems.map((item) => <a class="rounded-md px-3 py-2 hover:bg-shell hover:text-ink" href={item.href}>{item.label}</a>)}
+      <div class="absolute right-0 mt-3 w-72 rounded-2xl border border-borderSoft bg-ivory p-4 shadow-soft">
+        <nav
+          class="grid gap-1 text-sm font-medium text-cocoa"
+          aria-label="Navegación móvil"
+        >
+          {navItems.map((item) => (
+            <a
+              class="rounded-xl px-4 py-2.5 hover:bg-cream hover:text-ink"
+              href={item.href}
+            >{item.label}</a>
+          ))}
         </nav>
-        <a class="btn-primary mt-4 w-full" href={whatsappUrl}>Escribir por WhatsApp</a>
+        <div class="mt-4 grid gap-2">
+          <a class="btn-primary w-full text-center" href="/contact">Agendar evaluación</a>
+          <a
+            class="btn-secondary w-full text-center"
+            href={whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >Escribir por WhatsApp</a>
+        </div>
       </div>
     </details>
   </div>

@@ -1,0 +1,61 @@
+---
+import SectionTitle from "@/components/SectionTitle.astro";
+
+const reasons = [
+  {
+    title: "Evaluación personalizada",
+    description:
+      "Cada consulta comienza con un análisis detallado de tus rasgos y objetivos. No existe un tratamiento único para todos."
+  },
+  {
+    title: "Enfoque en resultados naturales",
+    description:
+      "Buscamos armonía, no transformación. El objetivo es que luzcas fresca y segura, siendo tú misma."
+  },
+  {
+    title: "Atención cercana y profesional",
+    description:
+      "Te acompañamos en cada etapa: antes, durante y después del tratamiento, con orientación clara y seguimiento cercano."
+  },
+  {
+    title: "Tratamientos orientados a la armonía facial",
+    description:
+      "Cada procedimiento se diseña pensando en el conjunto del rostro, no en zonas aisladas."
+  },
+  {
+    title: "Ambiente cálido y confiable",
+    description:
+      "Un espacio elegante y tranquilo donde te sientes cómoda y segura desde que llegas."
+  },
+  {
+    title: "Criterio estético con visión integral",
+    description:
+      "Combinamos técnica y sensibilidad artística para que los resultados sean precisos, equilibrados y naturales."
+  }
+];
+---
+
+<section class="section-pad bg-cream">
+  <div class="container-page">
+    <SectionTitle
+      eyebrow="Por qué elegirnos"
+      title="Una experiencia diseñada para que te sientas segura."
+      intro="En Face Art Clinic cada detalle está pensado para ofrecerte una atención clara, elegante y enfocada en lo que realmente importa: tú."
+      align="center"
+    />
+
+    <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {reasons.map((reason, i) => (
+        <div class="flex gap-4 rounded-2xl border border-borderSoft bg-ivory p-6 shadow-card">
+          <div class="flex size-8 shrink-0 items-center justify-center rounded-full bg-shell font-display text-sm font-semibold text-sage">
+            {i + 1}
+          </div>
+          <div>
+            <h3 class="font-semibold text-ink">{reason.title}</h3>
+            <p class="mt-2 text-sm leading-6 text-cocoa">{reason.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

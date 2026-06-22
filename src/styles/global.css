@@ -12,7 +12,7 @@
   }
 
   ::selection {
-    @apply bg-rose text-white;
+    @apply bg-rose/60 text-ink;
   }
 }
 
@@ -21,23 +21,33 @@
     @apply mx-auto w-full max-w-7xl px-5 sm:px-6 lg:px-8;
   }
 
+  /* Small gold label above section headings */
   .eyebrow {
     @apply text-xs font-semibold uppercase tracking-[0.18em] text-sage;
   }
 
+  /* Gold CTA button — primary action */
   .btn-primary {
-    @apply inline-flex items-center justify-center rounded-md bg-ink px-5 py-3 text-sm font-semibold text-white shadow-soft transition hover:-translate-y-0.5 hover:bg-cocoa focus:outline-none focus:ring-2 focus:ring-rose focus:ring-offset-2;
+    @apply inline-flex items-center justify-center rounded-full bg-sage px-6 py-3 text-sm font-semibold text-white shadow-card transition hover:-translate-y-0.5 hover:bg-ink focus:outline-none focus:ring-2 focus:ring-rose focus:ring-offset-2;
   }
 
+  /* Outline CTA button — secondary action */
   .btn-secondary {
-    @apply inline-flex items-center justify-center rounded-md border border-ink/15 bg-white px-5 py-3 text-sm font-semibold text-ink transition hover:-translate-y-0.5 hover:border-rose hover:text-cocoa focus:outline-none focus:ring-2 focus:ring-rose focus:ring-offset-2;
+    @apply inline-flex items-center justify-center rounded-full border border-sage px-6 py-3 text-sm font-semibold text-sage transition hover:-translate-y-0.5 hover:bg-sage hover:text-white focus:outline-none focus:ring-2 focus:ring-rose focus:ring-offset-2;
   }
 
+  /* Section vertical padding */
   .section-pad {
     @apply py-16 sm:py-20 lg:py-24;
   }
 
+  /* Card: ivory background, soft border, premium shadow */
   .card {
-    @apply rounded-lg border border-ink/10 bg-white shadow-soft;
+    @apply rounded-2xl border border-borderSoft bg-ivory shadow-card;
+  }
+
+  /* Gold decorative line used as section accent */
+  .gold-line {
+    @apply block h-px w-12 bg-sage;
   }
 }

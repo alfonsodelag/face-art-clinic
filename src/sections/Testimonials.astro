@@ -3,23 +3,33 @@ import SectionTitle from "@/components/SectionTitle.astro";
 import { testimonials } from "@/content/testimonials";
 ---
 
-<section class="section-pad bg-white">
+<!-- TODO: Replace with real patient testimonials approved by Face Art Clinic. -->
+<section class="section-pad bg-ivory">
   <div class="container-page">
     <SectionTitle
-      eyebrow="Pacientes"
-      title="Historias breves que ayudan a decidir con tranquilidad."
+      eyebrow="Experiencias"
+      title="Lo que dicen quienes ya confiaron en Face Art Clinic."
       align="center"
     />
+
     <div class="mt-10 grid gap-6 md:grid-cols-3">
       {testimonials.map((item) => (
-        <figure class="card p-6">
-          <blockquote class="text-base leading-7 text-cocoa">“{item.quote}”</blockquote>
-          <figcaption class="mt-5 border-t border-ink/10 pt-5">
+        <figure class="card flex flex-col justify-between p-7">
+          <!-- Quote mark -->
+          <div class="mb-4 font-display text-4xl leading-none text-rose select-none" aria-hidden="true">&ldquo;</div>
+          <blockquote class="flex-1 text-base leading-7 text-cocoa">
+            {item.quote}
+          </blockquote>
+          <figcaption class="mt-6 border-t border-borderSoft pt-5">
             <p class="font-semibold text-ink">{item.name}</p>
-            <p class="text-sm text-sage">{item.treatment}</p>
+            <p class="mt-0.5 text-sm text-sage">{item.treatment}</p>
           </figcaption>
         </figure>
       ))}
     </div>
+
+    <p class="mt-8 text-center text-xs text-cocoa/60">
+      Testimonios de referencia para demo. Reemplazar con experiencias reales confirmadas por la clínica.
+    </p>
   </div>
 </section>

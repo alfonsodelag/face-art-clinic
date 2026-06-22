@@ -1,5 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="12" fill="#f3ebe6"/>
-  <path d="M18 42c10-1 22-9 28-24 3 17-7 29-23 30-3 0-5-2-5-6Z" fill="#8da99b"/>
-  <circle cx="38" cy="26" r="7" fill="#d6a4a4"/>
+  <rect width="64" height="64" rx="14" fill="#F3E7D9"/>
+  <!-- Face oval -->
+  <ellipse cx="32" cy="32" rx="15" ry="19" fill="none" stroke="#AA800F" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Single almond eye (left-center) -->
+  <path d="M23 27 Q28 23 33 27 Q28 31 23 27Z" fill="#AA800F"/>
+  <!-- Lips -->
+  <path d="M25 41 Q32 46 39 41" fill="none" stroke="#AA800F" stroke-width="2.2" stroke-linecap="round"/>
 </svg>

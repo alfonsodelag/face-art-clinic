@@ -1,31 +1,64 @@
 ---
 import SectionTitle from "@/components/SectionTitle.astro";
-import { services } from "@/content/services";
+import { services, serviceCategories } from "@/content/services";
 
-const featured = services.filter((service) => service.featured).slice(0, 3);
-const items = featured.length ? featured : services.slice(0, 3);
+const featured = services.filter((s) => s.featured).slice(0, 3);
 ---
 
-<section class="section-pad bg-white">
+<section class="section-pad bg-cream">
   <div class="container-page">
     <div class="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
       <SectionTitle
         eyebrow="Tratamientos"
-        title="Servicios dermatológicos pensados para convertir visitas en consultas."
-        intro="Cada tarjeta sale de un archivo local editable, ideal para clonar el sitio y ajustar la oferta por clínica."
+        title="Servicios diseñados para la armonía y el cuidado facial."
+        intro="Ofrecemos tratamientos orientados al rejuvenecimiento, la hidratación, la armonización y el cuidado integral de la piel."
       />
-      <a class="btn-secondary md:mb-1" href="/services">Ver todos</a>
+      <a class="btn-secondary shrink-0 md:mb-1" href="/services">Ver todos</a>
     </div>
+
+    <!-- Featured service cards -->
     <div class="mt-10 grid gap-6 md:grid-cols-3">
-      {items.map((service) => (
-        <article class="card overflow-hidden">
-          <img class="h-56 w-full object-cover" src={service.image} alt={service.title} loading="lazy" />
+      {featured.map((service) => (
+        <article class="card group overflow-hidden transition hover:-translate-y-1">
+          <!-- TODO: Replace service images with confirmed Face Art Clinic photography. -->
+          <div class="overflow-hidden">
+            <img
+              class="h-56 w-full object-cover transition duration-500 group-hover:scale-105"
+              src={service.image}
+              alt={service.title}
+              loading="lazy"
+            />
+          </div>
           <div class="p-6">
-            <h3 class="font-display text-2xl font-semibold text-ink">{service.title}</h3>
+            <p class="eyebrow text-xs">{service.category}</p>
+            <h3 class="mt-2 font-display text-xl font-semibold text-ink">{service.title}</h3>
             <p class="mt-3 text-sm leading-6 text-cocoa">{service.description}</p>
+            <a
+              href="/contact"
+              class="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-sage transition hover:text-ink"
+            >
+              Consultar tratamiento
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
           </div>
         </article>
       ))}
     </div>
+
+    <!-- Category pills -->
+    <div class="mt-10 flex flex-wrap justify-center gap-3">
+      {serviceCategories.map((cat) => (
+        <a
+          href="/services"
+          class="rounded-full border border-borderSoft bg-ivory px-5 py-2 text-sm text-cocoa transition hover:border-sage hover:text-sage"
+        >{cat}</a>
+      ))}
+    </div>
+
+    <p class="mt-6 text-center text-xs text-cocoa/70">
+      Tratamientos sujetos a evaluación personalizada previa.
+    </p>
   </div>
 </section>

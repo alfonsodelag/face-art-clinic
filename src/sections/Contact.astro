@@ -6,41 +6,165 @@ import { siteConfig, whatsappUrl } from "@/config/site";
 const web3formsKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY;
 ---
 
-<section id="contacto" class="section-pad bg-shell">
-  <div class="container-page grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
+<section id="contacto" class="section-pad bg-cream">
+  <div class="container-page grid gap-12 lg:grid-cols-[0.85fr_1.15fr]">
+    <!-- Left: info -->
     <div>
       <SectionTitle
-        eyebrow="Agenda"
-        title="Reserva una evaluación o solicita más información."
-        intro="El formulario usa Web3Forms y no necesita backend propio. La llave se configura con una variable pública de entorno."
+        eyebrow="Contacto"
+        title="Agenda tu evaluaciÃ³n personalizada."
+        intro="EscrÃ­benos para coordinar tu primera consulta. Nos ponemos en contacto contigo para elegir dÃ­a y hora segÃºn tu disponibilidad."
       />
-      <div class="mt-8 space-y-3 text-sm leading-6 text-cocoa">
-        <p><strong class="text-ink">Teléfono:</strong> {siteConfig.phone}</p>
-        <p><strong class="text-ink">Dirección:</strong> {siteConfig.address}</p>
-        <p><strong class="text-ink">Horario:</strong> {siteConfig.hours.weekdays}</p>
+
+      <div class="mt-8 space-y-4 text-sm text-cocoa">
+        {siteConfig.address && (
+          <div class="flex items-start gap-3">
+            <svg class="mt-0.5 size-4 shrink-0 text-sage" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M8 1.5A4.5 4.5 0 0 1 12.5 6c0 3-4.5 8.5-4.5 8.5S3.5 9 3.5 6A4.5 4.5 0 0 1 8 1.5Zm0 3a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3Z" fill="currentColor"/>
+            </svg>
+            <span>{siteConfig.address}</span>
+          </div>
+        )}
+        {siteConfig.phone && (
+          <div class="flex items-center gap-3">
+            <svg class="size-4 shrink-0 text-sage" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M2 3a1 1 0 0 1 1-1h2.5a1 1 0 0 1 1 1v1.5c0 .55-.45 1-1 1H4.75c.25 1 .75 2 1.5 2.75S8 9.5 9 9.75V8.5a1 1 0 0 1 1-1H11.5a1 1 0 0 1 1 1V12a1 1 0 0 1-1 1H10C5.58 13 2 9.42 2 5V3Z" fill="currentColor"/>
+            </svg>
+            <a href={`tel:${siteConfig.phone}`} class="transition hover:text-sage">{siteConfig.phone}</a>
+          </div>
+        )}
+        {siteConfig.hours.weekdays && (
+          <div class="flex items-start gap-3">
+            <svg class="mt-0.5 size-4 shrink-0 text-sage" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <circle cx="8" cy="8" r="6.5" stroke="currentColor" stroke-width="1.2"/>
+              <path d="M8 4.5V8l2.5 2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+            </svg>
+            <span class="grid gap-1">
+              <span>{siteConfig.hours.weekdays}</span>
+              <span>{siteConfig.hours.saturday}</span>
+              <span>{siteConfig.hours.sunday}</span>
+              <span class="text-cocoa/70">{siteConfig.hours.appointmentNote}</span>
+            </span>
+          </div>
+        )}
       </div>
-      <a class="btn-primary mt-8" href={whatsappUrl}>Escribir por WhatsApp</a>
+
+      <div class="mt-8">
+        <a
+          class="btn-primary"
+          href={whatsappUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Escribir por WhatsApp
+        </a>
+      </div>
+
+      <a
+        href={siteConfig.social.instagram}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="mt-5 flex items-center gap-2 text-sm text-cocoa transition hover:text-sage"
+      >
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.5"/>
+          <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.5"/>
+          <circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>
+        </svg>
+        @faceartclinic.panama
+      </a>
     </div>
 
-    <form class="card grid gap-4 p-6" action="https://api.web3forms.com/submit" method="POST">
+    <!-- Right: form -->
+    <form
+      class="card grid gap-4 p-7"
+      action="https://api.web3forms.com/submit"
+      method="POST"
+      aria-label="Formulario de contacto Face Art Clinic"
+    >
       <input type="hidden" name="access_key" value={web3formsKey ?? ""} />
-      <input type="hidden" name="subject" value={`Nueva consulta desde ${siteConfig.businessName}`} />
-      <input class="rounded-md border border-ink/15 px-4 py-3 text-sm focus:border-sage focus:ring-sage" type="text" name="name" placeholder="Nombre" required />
+      <input
+        type="hidden"
+        name="subject"
+        value={`Nueva solicitud de evaluaciÃ³n â€” ${siteConfig.fullName}`}
+      />
+
       <div class="grid gap-4 sm:grid-cols-2">
-        <input class="rounded-md border border-ink/15 px-4 py-3 text-sm focus:border-sage focus:ring-sage" type="tel" name="phone" placeholder="Teléfono" required />
-        <input class="rounded-md border border-ink/15 px-4 py-3 text-sm focus:border-sage focus:ring-sage" type="email" name="email" placeholder="Email" required />
+        <div>
+          <label class="mb-1.5 block text-xs font-medium text-ink" for="contact-name">Nombre</label>
+          <input
+            id="contact-name"
+            class="w-full rounded-xl border border-borderSoft bg-cream px-4 py-3 text-sm text-ink placeholder:text-cocoa/60 focus:border-sage focus:outline-none focus:ring-1 focus:ring-sage"
+            type="text"
+            name="name"
+            placeholder="Tu nombre"
+            required
+          />
+        </div>
+        <div>
+          <label class="mb-1.5 block text-xs font-medium text-ink" for="contact-phone">TelÃ©fono / WhatsApp</label>
+          <input
+            id="contact-phone"
+            class="w-full rounded-xl border border-borderSoft bg-cream px-4 py-3 text-sm text-ink placeholder:text-cocoa/60 focus:border-sage focus:outline-none focus:ring-1 focus:ring-sage"
+            type="tel"
+            name="phone"
+            placeholder="+507 0000-0000"
+            required
+          />
+        </div>
       </div>
-      <select class="rounded-md border border-ink/15 px-4 py-3 text-sm text-cocoa focus:border-sage focus:ring-sage" name="treatment" required>
-        <option value="">Tratamiento deseado</option>
-        {services.map((service) => <option value={service.title}>{service.title}</option>)}
-      </select>
-      <textarea class="min-h-36 rounded-md border border-ink/15 px-4 py-3 text-sm focus:border-sage focus:ring-sage" name="message" placeholder="Cuéntanos qué necesitas" required></textarea>
+
+      <div>
+        <label class="mb-1.5 block text-xs font-medium text-ink" for="contact-email">
+          Email <span class="text-cocoa/50">(opcional)</span>
+        </label>
+        <input
+          id="contact-email"
+          class="w-full rounded-xl border border-borderSoft bg-cream px-4 py-3 text-sm text-ink placeholder:text-cocoa/60 focus:border-sage focus:outline-none focus:ring-1 focus:ring-sage"
+          type="email"
+          name="email"
+          placeholder="tu@email.com"
+        />
+      </div>
+
+      <div>
+        <label class="mb-1.5 block text-xs font-medium text-ink" for="contact-treatment">Tratamiento de interÃ©s</label>
+        <select
+          id="contact-treatment"
+          class="w-full rounded-xl border border-borderSoft bg-cream px-4 py-3 text-sm text-ink focus:border-sage focus:outline-none focus:ring-1 focus:ring-sage"
+          name="treatment"
+          required
+        >
+          <option value="">Selecciona un tratamiento</option>
+          {services.map((s) => <option value={s.title}>{s.title}</option>)}
+          <option value="No lo sÃ© aÃºn">No lo sÃ© aÃºn / quiero orientaciÃ³n</option>
+        </select>
+      </div>
+
+      <div>
+        <label class="mb-1.5 block text-xs font-medium text-ink" for="contact-message">Mensaje</label>
+        <textarea
+          id="contact-message"
+          class="min-h-32 w-full rounded-xl border border-borderSoft bg-cream px-4 py-3 text-sm text-ink placeholder:text-cocoa/60 focus:border-sage focus:outline-none focus:ring-1 focus:ring-sage"
+          name="message"
+          placeholder="CuÃ©ntanos quÃ© buscas o quÃ© te gustarÃ­a mejorarâ€¦"
+          required
+        ></textarea>
+      </div>
+
+      <p class="text-xs leading-5 text-cocoa/70">
+        Al enviar este formulario aceptas que Face Art Clinic te contacte para coordinar tu evaluaciÃ³n.
+      </p>
+
       {!web3formsKey && (
-        <p class="rounded-md bg-rose/10 px-4 py-3 text-sm text-cocoa">
-          Configura PUBLIC_WEB3FORMS_ACCESS_KEY en Vercel o en tu archivo .env local.
+        <p class="rounded-xl bg-rose/20 px-4 py-3 text-sm text-ink">
+          Configura <code class="font-mono text-sage">PUBLIC_WEB3FORMS_ACCESS_KEY</code> en Vercel o en tu archivo <code class="font-mono">.env</code> local.
         </p>
       )}
-      <button class="btn-primary" type="submit">Enviar solicitud</button>
+
+      <button class="btn-primary" type="submit">
+        Solicitar evaluaciÃ³n
+      </button>
     </form>
   </div>
 </section>

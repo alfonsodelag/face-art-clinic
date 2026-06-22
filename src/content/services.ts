@@ -2,47 +2,82 @@ export type Service = {
   title: string;
   description: string;
   image: string;
+  category: string;
   featured?: boolean;
 };
 
+// TODO: Confirm final service list with Face Art Clinic before launch.
 export const services: Service[] = [
   {
-    title: "Dermatología clínica",
+    title: "Armonización facial",
     description:
-      "Evaluación médica de piel, cabello y uñas con planes claros para diagnóstico, tratamiento y seguimiento.",
+      "Tratamiento personalizado para mejorar la proporción y el equilibrio de los rasgos del rostro, buscando resultados naturales y armónicos.",
     image: "/images/services/sd-1.jpg",
+    category: "Inyectables estéticos",
     featured: true
   },
   {
-    title: "Tratamiento para acné",
+    title: "Toxina botulínica",
     description:
-      "Protocolos personalizados para brotes activos, marcas, sensibilidad e inflamación persistente.",
+      "Ayuda a suavizar la apariencia de líneas de expresión y a relajar zonas específicas del rostro con precisión y criterio estético.",
     image: "/images/services/sd-2.jpg",
+    category: "Inyectables estéticos",
     featured: true
   },
   {
-    title: "Manchas y melasma",
+    title: "Rellenos faciales",
     description:
-      "Manejo integral de hiperpigmentación con peelings, tecnología médica y cuidado domiciliario.",
+      "Tratamientos para restaurar volumen, definir contornos y mejorar la apariencia de ciertas áreas del rostro de forma gradual y natural.",
     image: "/images/services/sd-3.jpg",
+    category: "Inyectables estéticos",
     featured: true
   },
   {
-    title: "Rejuvenecimiento facial",
+    title: "Limpieza facial profunda",
     description:
-      "Tratamientos para textura, luminosidad y firmeza, diseñados para resultados naturales.",
-    image: "/images/services/services-details.jpg"
+      "Protocolo de limpieza y purificación de la piel para mejorar su textura, luminosidad y salud general.",
+    image: "/images/services/sd-4.jpg",
+    category: "Cuidado de la piel"
   },
   {
-    title: "Botox y rellenos faciales",
+    title: "Tratamientos para manchas",
     description:
-      "Procedimientos estéticos médicos para suavizar líneas y armonizar rasgos con criterio clínico.",
-    image: "/images/consultation-video.jpg"
+      "Abordaje personalizado para reducir la apariencia de manchas, melasma e hiperpigmentación con un enfoque gradual y seguro.",
+    image: "/images/services/sd-5.jpg",
+    category: "Cuidado de la piel"
   },
   {
-    title: "Láser dermatológico",
+    title: "Peelings y renovación",
     description:
-      "Tecnología para manchas, rojeces, cicatrices, rejuvenecimiento y otras necesidades de la piel.",
-    image: "/images/services-bg.jpg"
+      "Tratamientos de exfoliación controlada para renovar la superficie de la piel y mejorar su tono, textura y apariencia.",
+    image: "/images/services/sd-6.jpg",
+    category: "Cuidado de la piel"
+  },
+  {
+    title: "Skinboosters",
+    description:
+      "Hidratación profunda con ácido hialurónico para mejorar la luminosidad, firmeza y calidad general de la piel.",
+    image: "/images/services/sd-7.jpg",
+    category: "Tratamientos avanzados"
+  },
+  {
+    title: "Bioestimuladores",
+    description:
+      "Tratamientos que estimulan la producción natural de colágeno para mejorar la firmeza y la calidad de la piel a largo plazo.",
+    image: "/images/services/sd-8.jpg",
+    category: "Tratamientos avanzados"
+  },
+  {
+    title: "Microneedling",
+    description:
+      "Técnica de microagujas para estimular la regeneración de la piel, mejorar textura, poros y cicatrices con resultados progresivos.",
+    image: "/images/services/sd-9.jpg",
+    category: "Tratamientos avanzados"
   }
 ];
+
+export const serviceCategories = [
+  "Inyectables estéticos",
+  "Cuidado de la piel",
+  "Tratamientos avanzados"
+] as const;

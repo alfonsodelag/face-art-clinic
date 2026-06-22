@@ -1,20 +1,21 @@
+// TODO: Replace with real testimonials from confirmed Face Art Clinic patients.
 export const testimonials = [
   {
-    name: "María G.",
-    treatment: "Tratamiento de acné",
+    name: "Valentina M.",
+    treatment: "Armonización facial",
     quote:
-      "Me explicaron cada paso con calma y el plan fue muy fácil de seguir. La piel mejoró sin sentirme perdida."
+      "Desde la evaluación me sentí escuchada. El resultado fue exactamente lo que buscaba: natural, sutil y muy armonioso. No quería verme diferente, quería verme mejor."
   },
   {
-    name: "Andrea R.",
-    treatment: "Rejuvenecimiento facial",
+    name: "Daniela R.",
+    treatment: "Toxina botulínica",
     quote:
-      "Buscaba un resultado natural y eso fue exactamente lo que encontré: atención médica, criterio y mucho detalle."
+      "Me explicaron todo el proceso con detalle y calma. El resultado fue muy natural, justo lo que esperaba. Ya no me preocupa que se note, porque simplemente se ve bien."
   },
   {
-    name: "Laura P.",
-    treatment: "Manchas",
+    name: "Carolina S.",
+    treatment: "Skinboosters",
     quote:
-      "La consulta fue clara desde el inicio. Me gustó que ajustaran el tratamiento a mi tipo de piel y rutina."
+      "Mi piel luce más luminosa y descansada. Fue una experiencia muy agradable: ambiente cálido, atención cercana y resultados que hablan por sí solos."
   }
 ];
