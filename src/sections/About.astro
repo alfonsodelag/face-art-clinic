@@ -1,0 +1,29 @@
+---
+import SectionTitle from "@/components/SectionTitle.astro";
+---
+
+<section class="section-pad bg-cream">
+  <div class="container-page grid items-center gap-12 lg:grid-cols-[0.9fr_1.1fr]">
+    <div class="grid grid-cols-2 gap-4">
+      <img class="h-80 w-full rounded-lg object-cover" src="/images/about-video.jpg" alt="Especialista preparando evaluación dermatológica" loading="lazy" />
+      <img class="mt-10 h-80 w-full rounded-lg object-cover" src="/images/contact-pic.jpg" alt="Paciente recibiendo orientación de cuidado de piel" loading="lazy" />
+    </div>
+    <div>
+      <SectionTitle
+        eyebrow="Clínica reusable"
+        title="Una presencia digital premium, simple de adaptar y lista para transferir."
+        intro="El template centraliza marca, servicios, médicos, preguntas frecuentes y blog en archivos locales para lanzar nuevas clínicas con rapidez sin cargar el proyecto de backend innecesario."
+      />
+      <div class="mt-8 grid gap-4 sm:grid-cols-2">
+        <div class="card p-5">
+          <h3 class="font-semibold text-ink">Enfoque médico</h3>
+          <p class="mt-2 text-sm leading-6 text-cocoa">Contenido orientado a confianza, diagnóstico, seguimiento y expectativas realistas.</p>
+        </div>
+        <div class="card p-5">
+          <h3 class="font-semibold text-ink">Edición rápida</h3>
+          <p class="mt-2 text-sm leading-6 text-cocoa">Datos del negocio y colecciones en TypeScript ligero, sin CMS salvo que el cliente lo necesite.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

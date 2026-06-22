@@ -1,0 +1,46 @@
+---
+import SectionTitle from "@/components/SectionTitle.astro";
+import { services } from "@/content/services";
+import { siteConfig, whatsappUrl } from "@/config/site";
+
+const web3formsKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY;
+---
+
+<section id="contacto" class="section-pad bg-shell">
+  <div class="container-page grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
+    <div>
+      <SectionTitle
+        eyebrow="Agenda"
+        title="Reserva una evaluación o solicita más información."
+        intro="El formulario usa Web3Forms y no necesita backend propio. La llave se configura con una variable pública de entorno."
+      />
+      <div class="mt-8 space-y-3 text-sm leading-6 text-cocoa">
+        <p><strong class="text-ink">Teléfono:</strong> {siteConfig.phone}</p>
+        <p><strong class="text-ink">Dirección:</strong> {siteConfig.address}</p>
+        <p><strong class="text-ink">Horario:</strong> {siteConfig.hours.weekdays}</p>
+      </div>
+      <a class="btn-primary mt-8" href={whatsappUrl}>Escribir por WhatsApp</a>
+    </div>
+
+    <form class="card grid gap-4 p-6" action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value={web3formsKey ?? ""} />
+      <input type="hidden" name="subject" value={`Nueva consulta desde ${siteConfig.businessName}`} />
+      <input class="rounded-md border border-ink/15 px-4 py-3 text-sm focus:border-sage focus:ring-sage" type="text" name="name" placeholder="Nombre" required />
+      <div class="grid gap-4 sm:grid-cols-2">
+        <input class="rounded-md border border-ink/15 px-4 py-3 text-sm focus:border-sage focus:ring-sage" type="tel" name="phone" placeholder="Teléfono" required />
+        <input class="rounded-md border border-ink/15 px-4 py-3 text-sm focus:border-sage focus:ring-sage" type="email" name="email" placeholder="Email" required />
+      </div>
+      <select class="rounded-md border border-ink/15 px-4 py-3 text-sm text-cocoa focus:border-sage focus:ring-sage" name="treatment" required>
+        <option value="">Tratamiento deseado</option>
+        {services.map((service) => <option value={service.title}>{service.title}</option>)}
+      </select>
+      <textarea class="min-h-36 rounded-md border border-ink/15 px-4 py-3 text-sm focus:border-sage focus:ring-sage" name="message" placeholder="Cuéntanos qué necesitas" required></textarea>
+      {!web3formsKey && (
+        <p class="rounded-md bg-rose/10 px-4 py-3 text-sm text-cocoa">
+          Configura PUBLIC_WEB3FORMS_ACCESS_KEY en Vercel o en tu archivo .env local.
+        </p>
+      )}
+      <button class="btn-primary" type="submit">Enviar solicitud</button>
+    </form>
+  </div>
+</section>

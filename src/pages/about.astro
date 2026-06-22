@@ -1,0 +1,28 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import SectionTitle from "@/components/SectionTitle.astro";
+import Doctors from "@/sections/Doctors.astro";
+import Testimonials from "@/sections/Testimonials.astro";
+import Contact from "@/sections/Contact.astro";
+---
+
+<BaseLayout title="Clínica | Dermatología estética y clínica en Panamá" description="Conoce la filosofía, equipo y experiencia de una clínica dermatológica moderna, adaptable para proyectos locales premium.">
+  <section class="section-pad bg-white">
+    <div class="container-page grid items-center gap-12 lg:grid-cols-2">
+      <div>
+        <SectionTitle
+          eyebrow="La clínica"
+          title="Un espacio para cuidar la piel con ciencia, detalle y calidez."
+          intro="Esta página está diseñada para explicar la experiencia de la clínica, presentar su diferencial y reforzar confianza antes de que el paciente agende."
+        />
+        <p class="mt-6 text-base leading-8 text-cocoa">
+          El contenido puede adaptarse a una clínica real cambiando textos, fotos, especialidades y datos desde archivos locales. Si el cliente necesita editar blog o contenido sin tocar código, Sanity puede añadirse después.
+        </p>
+      </div>
+      <img class="h-[34rem] w-full rounded-lg object-cover shadow-soft" src="/images/about-video.jpg" alt="Consultorio dermatológico con atención personalizada" />
+    </div>
+  </section>
+  <Doctors />
+  <Testimonials />
+  <Contact />
+</BaseLayout>

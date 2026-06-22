@@ -1,0 +1,46 @@
+---
+import Button from "@/components/Button.astro";
+import { siteConfig, whatsappUrl } from "@/config/site";
+---
+
+<section class="relative overflow-hidden bg-white">
+  <div class="absolute inset-y-0 right-0 hidden w-1/2 bg-shell lg:block"></div>
+  <div class="container-page relative grid min-h-[calc(100vh-5rem)] items-center gap-12 py-14 lg:grid-cols-[0.95fr_1.05fr] lg:py-20">
+    <div class="max-w-2xl">
+      <p class="eyebrow">Dermatología clínica y estética</p>
+      <h1 class="mt-4 font-display text-5xl font-semibold leading-tight text-ink sm:text-6xl">
+        Cuidado médico de la piel con una estética serena y natural.
+      </h1>
+      <p class="mt-6 text-lg leading-8 text-cocoa">{siteConfig.tagline}. Diseñamos tratamientos seguros para acné, manchas, láser, botox y rejuvenecimiento facial.</p>
+      <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+        <Button href={whatsappUrl} label="Agendar consulta" />
+        <Button href="/services" label="Ver tratamientos" variant="secondary" />
+      </div>
+      <dl class="mt-10 grid grid-cols-3 gap-4 border-t border-ink/10 pt-8">
+        <div>
+          <dt class="font-display text-3xl font-semibold text-ink">12+</dt>
+          <dd class="mt-1 text-xs uppercase tracking-[0.12em] text-cocoa">Tratamientos</dd>
+        </div>
+        <div>
+          <dt class="font-display text-3xl font-semibold text-ink">3</dt>
+          <dd class="mt-1 text-xs uppercase tracking-[0.12em] text-cocoa">Especialistas</dd>
+        </div>
+        <div>
+          <dt class="font-display text-3xl font-semibold text-ink">1:1</dt>
+          <dd class="mt-1 text-xs uppercase tracking-[0.12em] text-cocoa">Plan médico</dd>
+        </div>
+      </dl>
+    </div>
+    <div class="relative">
+      <img
+        class="h-[36rem] w-full rounded-lg object-cover shadow-soft"
+        src="/images/hero-bg.jpg"
+        alt="Consultorio dermatológico premium con ambiente claro y cuidado facial"
+      />
+      <div class="absolute bottom-6 left-6 max-w-xs rounded-lg bg-white/92 p-5 shadow-soft backdrop-blur">
+        <p class="text-sm font-semibold text-ink">Consulta inicial</p>
+        <p class="mt-2 text-sm leading-6 text-cocoa">Evaluación, diagnóstico y ruta de tratamiento adaptada a tu piel.</p>
+      </div>
+    </div>
+  </div>
+</section>
