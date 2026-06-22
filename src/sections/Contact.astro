@@ -12,8 +12,8 @@ const web3formsKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY;
     <div>
       <SectionTitle
         eyebrow="Contacto"
-        title="Agenda tu evaluaciÃ³n personalizada."
-        intro="EscrÃ­benos para coordinar tu primera consulta. Nos ponemos en contacto contigo para elegir dÃ­a y hora segÃºn tu disponibilidad."
+        title="Agenda tu evaluación personalizada."
+        intro="Escríbenos para coordinar tu primera consulta. Nos ponemos en contacto contigo para elegir día y hora según tu disponibilidad."
       />
 
       <div class="mt-8 space-y-4 text-sm text-cocoa">
@@ -86,7 +86,7 @@ const web3formsKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY;
       <input
         type="hidden"
         name="subject"
-        value={`Nueva solicitud de evaluaciÃ³n â€” ${siteConfig.fullName}`}
+        value={`Nueva solicitud de evaluación — ${siteConfig.fullName}`}
       />
 
       <div class="grid gap-4 sm:grid-cols-2">
@@ -102,7 +102,7 @@ const web3formsKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY;
           />
         </div>
         <div>
-          <label class="mb-1.5 block text-xs font-medium text-ink" for="contact-phone">TelÃ©fono / WhatsApp</label>
+          <label class="mb-1.5 block text-xs font-medium text-ink" for="contact-phone">Teléfono / WhatsApp</label>
           <input
             id="contact-phone"
             class="w-full rounded-xl border border-borderSoft bg-cream px-4 py-3 text-sm text-ink placeholder:text-cocoa/60 focus:border-sage focus:outline-none focus:ring-1 focus:ring-sage"
@@ -128,7 +128,7 @@ const web3formsKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY;
       </div>
 
       <div>
-        <label class="mb-1.5 block text-xs font-medium text-ink" for="contact-treatment">Tratamiento de interÃ©s</label>
+        <label class="mb-1.5 block text-xs font-medium text-ink" for="contact-treatment">Tratamiento de interés</label>
         <select
           id="contact-treatment"
           class="w-full rounded-xl border border-borderSoft bg-cream px-4 py-3 text-sm text-ink focus:border-sage focus:outline-none focus:ring-1 focus:ring-sage"
@@ -137,7 +137,7 @@ const web3formsKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY;
         >
           <option value="">Selecciona un tratamiento</option>
           {services.map((s) => <option value={s.title}>{s.title}</option>)}
-          <option value="No lo sÃ© aÃºn">No lo sÃ© aÃºn / quiero orientaciÃ³n</option>
+          <option value="No lo sé aún">No lo sé aún / quiero orientación</option>
         </select>
       </div>
 
@@ -147,13 +147,13 @@ const web3formsKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY;
           id="contact-message"
           class="min-h-32 w-full rounded-xl border border-borderSoft bg-cream px-4 py-3 text-sm text-ink placeholder:text-cocoa/60 focus:border-sage focus:outline-none focus:ring-1 focus:ring-sage"
           name="message"
-          placeholder="CuÃ©ntanos quÃ© buscas o quÃ© te gustarÃ­a mejorarâ€¦"
+          placeholder="Cuéntanos qué buscas o qué te gustaría mejorar…"
           required
         ></textarea>
       </div>
 
       <p class="text-xs leading-5 text-cocoa/70">
-        Al enviar este formulario aceptas que Face Art Clinic te contacte para coordinar tu evaluaciÃ³n.
+        Al enviar este formulario aceptas que Face Art Clinic te contacte para coordinar tu evaluación.
       </p>
 
       {!web3formsKey && (
@@ -163,7 +163,7 @@ const web3formsKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY;
       )}
 
       <button class="btn-primary" type="submit">
-        Solicitar evaluaciÃ³n
+        Solicitar evaluación
       </button>
     </form>
   </div>
